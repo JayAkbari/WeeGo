@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found</title>
+    <style>
+        /* Reset default styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Background animation */
+        @keyframes backgroundAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Body styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(270deg, #ff6b6b, #ff8e53, #fe6b8b, #ff8e53);
+            background-size: 800% 800%;
+            animation: backgroundAnimation 15s ease infinite;
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Container styling */
+        .container {
+            text-align: center;
+            padding: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* Heading styling */
+        h1 {
+            font-size: 6rem;
+            margin-bottom: 20px;
+            letter-spacing: 5px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* Paragraph styling */
+        p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            animation: fadeIn 2.5s ease-in-out;
+        }
+
+        /* Button styling */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            font-size: 1rem;
+            color: #ff6b6b;
+            background: #fff;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: background 0.3s, color 0.3s, transform 0.3s;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        /* Button hover effect */
+        .btn:hover {
+            background: #ff6b6b;
+            color: #fff;
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Add a subtle shadow to text */
+        h1,
+        p {
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="not-found-message">
+            <h1>404</h1>
+            <p>Oops! The page you're looking for cannot be found.</p>
+            <a href="/" class="btn">Go Back Home</a>
+        </div>
+    </div>
+</body>
+
+</html>

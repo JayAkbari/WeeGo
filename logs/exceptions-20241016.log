@@ -1,0 +1,42 @@
+{
+  "level": "error",
+  "message": "uncaughtException: bind EADDRINUSE null:3000\nError: bind EADDRINUSE null:3000\n    at listenOnPrimaryHandle (node:net:1885:18)\n    at rr (node:internal/cluster/child:162:12)\n    at Worker.<anonymous> (node:internal/cluster/child:112:7)\n    at process.onInternalMessage (node:internal/cluster/utils:49:5)\n    at process.emit (node:events:529:35)\n    at emit (node:internal/child_process:944:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)",
+  "timestamp": "2024-10-16T07:31:07.644Z",
+  "stack": "Error: bind EADDRINUSE null:3000\n    at listenOnPrimaryHandle (node:net:1885:18)\n    at rr (node:internal/cluster/child:162:12)\n    at Worker.<anonymous> (node:internal/cluster/child:112:7)\n    at process.onInternalMessage (node:internal/cluster/utils:49:5)\n    at process.emit (node:events:529:35)\n    at emit (node:internal/child_process:944:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)"
+}
+{
+  "level": "error",
+  "message": "uncaughtException: bind EADDRINUSE null:3000\nError: bind EADDRINUSE null:3000\n    at listenOnPrimaryHandle (node:net:1885:18)\n    at rr (node:internal/cluster/child:162:12)\n    at Worker.<anonymous> (node:internal/cluster/child:112:7)\n    at process.onInternalMessage (node:internal/cluster/utils:49:5)\n    at process.emit (node:events:529:35)\n    at emit (node:internal/child_process:944:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)",
+  "timestamp": "2024-10-16T07:31:32.333Z",
+  "stack": "Error: bind EADDRINUSE null:3000\n    at listenOnPrimaryHandle (node:net:1885:18)\n    at rr (node:internal/cluster/child:162:12)\n    at Worker.<anonymous> (node:internal/cluster/child:112:7)\n    at process.onInternalMessage (node:internal/cluster/utils:49:5)\n    at process.emit (node:events:529:35)\n    at emit (node:internal/child_process:944:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)"
+}
+{
+  "level": "error",
+  "message": "uncaughtException: bind EADDRINUSE null:3000\nError: bind EADDRINUSE null:3000\n    at listenOnPrimaryHandle (node:net:1885:18)\n    at rr (node:internal/cluster/child:162:12)\n    at Worker.<anonymous> (node:internal/cluster/child:112:7)\n    at process.onInternalMessage (node:internal/cluster/utils:49:5)\n    at process.emit (node:events:529:35)\n    at emit (node:internal/child_process:944:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)",
+  "timestamp": "2024-10-16T07:31:36.760Z",
+  "stack": "Error: bind EADDRINUSE null:3000\n    at listenOnPrimaryHandle (node:net:1885:18)\n    at rr (node:internal/cluster/child:162:12)\n    at Worker.<anonymous> (node:internal/cluster/child:112:7)\n    at process.onInternalMessage (node:internal/cluster/utils:49:5)\n    at process.emit (node:events:529:35)\n    at emit (node:internal/child_process:944:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)"
+}
+{
+  "level": "error",
+  "message": "uncaughtException: bind EADDRINUSE null:3000\nError: bind EADDRINUSE null:3000\n    at listenOnPrimaryHandle (node:net:1885:18)\n    at rr (node:internal/cluster/child:162:12)\n    at Worker.<anonymous> (node:internal/cluster/child:112:7)\n    at process.onInternalMessage (node:internal/cluster/utils:49:5)\n    at process.emit (node:events:529:35)\n    at emit (node:internal/child_process:944:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)",
+  "timestamp": "2024-10-16T07:31:40.787Z",
+  "stack": "Error: bind EADDRINUSE null:3000\n    at listenOnPrimaryHandle (node:net:1885:18)\n    at rr (node:internal/cluster/child:162:12)\n    at Worker.<anonymous> (node:internal/cluster/child:112:7)\n    at process.onInternalMessage (node:internal/cluster/utils:49:5)\n    at process.emit (node:events:529:35)\n    at emit (node:internal/child_process:944:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)"
+}
+{
+  "level": "error",
+  "message": "uncaughtException: bind EADDRINUSE null:3000\nError: bind EADDRINUSE null:3000\n    at listenOnPrimaryHandle (node:net:1885:18)\n    at rr (node:internal/cluster/child:162:12)\n    at Worker.<anonymous> (node:internal/cluster/child:112:7)\n    at process.onInternalMessage (node:internal/cluster/utils:49:5)\n    at process.emit (node:events:529:35)\n    at emit (node:internal/child_process:944:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)",
+  "timestamp": "2024-10-16T07:31:44.811Z",
+  "stack": "Error: bind EADDRINUSE null:3000\n    at listenOnPrimaryHandle (node:net:1885:18)\n    at rr (node:internal/cluster/child:162:12)\n    at Worker.<anonymous> (node:internal/cluster/child:112:7)\n    at process.onInternalMessage (node:internal/cluster/utils:49:5)\n    at process.emit (node:events:529:35)\n    at emit (node:internal/child_process:944:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)"
+}
+{
+  "level": "error",
+  "message": "uncaughtException: bind EADDRINUSE null:3000\nError: bind EADDRINUSE null:3000\n    at listenOnPrimaryHandle (node:net:1885:18)\n    at rr (node:internal/cluster/child:162:12)\n    at Worker.<anonymous> (node:internal/cluster/child:112:7)\n    at process.onInternalMessage (node:internal/cluster/utils:49:5)\n    at process.emit (node:events:529:35)\n    at emit (node:internal/child_process:944:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)",
+  "timestamp": "2024-10-16T07:31:48.822Z",
+  "stack": "Error: bind EADDRINUSE null:3000\n    at listenOnPrimaryHandle (node:net:1885:18)\n    at rr (node:internal/cluster/child:162:12)\n    at Worker.<anonymous> (node:internal/cluster/child:112:7)\n    at process.onInternalMessage (node:internal/cluster/utils:49:5)\n    at process.emit (node:events:529:35)\n    at emit (node:internal/child_process:944:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)"
+}
+{
+  "level": "error",
+  "message": "uncaughtException: bind EADDRINUSE null:3000\nError: bind EADDRINUSE null:3000\n    at listenOnPrimaryHandle (node:net:1885:18)\n    at rr (node:internal/cluster/child:162:12)\n    at Worker.<anonymous> (node:internal/cluster/child:112:7)\n    at process.onInternalMessage (node:internal/cluster/utils:49:5)\n    at process.emit (node:events:529:35)\n    at emit (node:internal/child_process:944:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)",
+  "timestamp": "2024-10-16T07:31:52.823Z",
+  "stack": "Error: bind EADDRINUSE null:3000\n    at listenOnPrimaryHandle (node:net:1885:18)\n    at rr (node:internal/cluster/child:162:12)\n    at Worker.<anonymous> (node:internal/cluster/child:112:7)\n    at process.onInternalMessage (node:internal/cluster/utils:49:5)\n    at process.emit (node:events:529:35)\n    at emit (node:internal/child_process:944:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)"
+}

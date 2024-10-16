@@ -1,0 +1,15 @@
+{"level":"info","message":"[Sequelize]: Executed (default): SELECT 1+1 AS result"}
+{"level":"info","message":"[Sequelize]: Executed (default): SELECT 1+1 AS result"}
+{"level":"info","message":"[Sequelize]: Executed (default): SELECT 1+1 AS result"}
+{"level":"info","message":"[Sequelize]: Executed (default): SELECT 1+1 AS result"}
+{"level":"info","message":"[Sequelize]: Executed (default): SELECT 1+1 AS result"}
+{"level":"info","message":"[Sequelize]: Executed (default): SELECT 1+1 AS result"}
+{"level":"info","message":"[Sequelize]: Executed (default): SELECT 1+1 AS result"}
+{"level":"info","message":"[Sequelize]: Executed (default): SELECT 1+1 AS result"}
+{"level":"info","message":"[Sequelize]: Executed (default): SELECT 1+1 AS result"}
+{"level":"info","message":"[Sequelize]: Executed (default): SELECT 1+1 AS result"}
+{"level":"info","message":"[Sequelize]: Executed (default): SELECT 1+1 AS result"}
+{"level":"info","message":"[Sequelize]: Executed (default): SELECT 1+1 AS result"}
+{"level":"info","message":"[Sequelize]: Executed (default): SELECT 1+1 AS result"}
+{"level":"info","message":"[Sequelize]: Executed (default): SELECT count(DISTINCT(\"Routes\".\"id\")) AS \"count\" FROM \"routes\" AS \"Routes\" INNER JOIN \"route_stops\" AS \"stops\" ON \"Routes\".\"id\" = \"stops\".\"route_id\" WHERE 1=1;"}
+{"level":"info","message":"[Sequelize]: Executed (default): SELECT \"Routes\".\"id\", \"Routes\".\"custom_id\", \"Routes\".\"name\", \"Routes\".\"from_stop\", \"Routes\".\"driver_id\", \"Routes\".\"vehicle_id\", \"Routes\".\"is_active\", \"Routes\".\"createdAt\", \"Routes\".\"updatedAt\", \"stops\".\"id\" AS \"stops.id\", \"stops\".\"route_id\" AS \"stops.route_id\", \"stops\".\"custom_id\" AS \"stops.custom_id\", \"stops\".\"name\" AS \"stops.name\", \"stops\".\"coordinates\" AS \"stops.coordinates\", \"stops\".\"travel_time\" AS \"stops.travel_time\", \"stops\".\"is_active\" AS \"stops.is_active\", \"stops\".\"createdAt\" AS \"stops.createdAt\", \"stops\".\"updatedAt\" AS \"stops.updatedAt\" FROM \"routes\" AS \"Routes\" INNER JOIN \"route_stops\" AS \"stops\" ON \"Routes\".\"id\" = \"stops\".\"route_id\" WHERE 1=1 ORDER BY \"Routes\".\"id\" DESC LIMIT 10 OFFSET 0;"}
