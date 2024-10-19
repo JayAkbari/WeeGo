@@ -9,7 +9,6 @@ const os = require('os');
 const swaggerUi = require('swagger-ui-express');
 const expressBasicAuth = require('express-basic-auth');
 const morgan = require('morgan');
-
 const ResponseHandler = require('./utils/responseHandler');
 
 // Initialize the Express app
@@ -18,13 +17,15 @@ const totalCPUs = os.cpus().length;
 const port = process.env.APP_PORT || 3000;
 
 // Middleware to enhance security headers
-app.use(helmet());
+app.use(helmet({
+  contentSecurityPolicy: false, // Adjust helmet settings if needed for CORS
+}));
 
-// Middleware to parse incoming request bodies (JSON & URL-encoded)
+// Middleware to parse incoming request bodies
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// Middleware to console the incoming requests
+// Middleware to log incoming requests
 app.use(morgan('dev'));
 
 // Middleware to handle CORS
@@ -33,6 +34,9 @@ app.use(cors({
     methods: ['PUT', 'POST', 'PATCH', 'DELETE', 'GET'],
     allowedHeaders: 'Origin, Access-Control-Allow-Origin, X-Requested-With, Content-Type, Accept, Authorization',
 }));
+
+// Handle CORS preflight requests
+app.options('*', cors());
 
 // Middleware to disable caching
 app.use((req, res, next) => {
@@ -69,23 +73,22 @@ app.get('/', (req, res) => {
 // API routes
 app.use('/api/:ve', require('./routes/v1'));
 
-// Route to handle 404 errors for unhandled routes
+// Route to handle 404 errors
 app.use((req, res) => {
     res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
 });
 
-// Cluster setup to utilize multiple CPU cores
+// Cluster setup
 if (cluster.isMaster) {
-    for (let i = 0; i < totalCPUs; i++) { // Fork workers based on the number of available CPUs
+    for (let i = 0; i < totalCPUs; i++) {
         cluster.fork();
     }
 
-    cluster.on('exit', () => { // If a worker dies, fork a new one
+    cluster.on('exit', () => {
         cluster.fork();
     });
-}
-else {
-    app.listen(port, () => { // Start the server in worker process
+} else {
+    app.listen(port, () => {
         console.log(`Server started 🚀 : ${process.env.APP_BASE_URL}`);
     });
 }
