@@ -29,19 +29,26 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan('dev'));
 
 // Middleware to handle CORS
-app.use(cors({
-    origin: '*',
-    methods: ['PUT', 'POST', 'PATCH', 'DELETE', 'GET'],
-    allowedHeaders: 'Origin, Access-Control-Allow-Origin, X-Requested-With, Content-Type, Accept, Authorization',
-}));
+// app.use(cors({
+//     origin: '*',
+//     methods: ['PUT', 'POST', 'PATCH', 'DELETE', 'GET'],
+//     allowedHeaders: 'Origin, Access-Control-Allow-Origin, X-Requested-With, Content-Type, Accept, Authorization',
+// }));
 
 // Handle CORS preflight requests
-app.options('*', cors());
+// app.options('*', cors());
 
 // Middleware to disable caching
-app.use((req, res, next) => {
-    res.header('Cache-Control', 'no-cache,no-store,must-revalidate,max-age=0');
-    next();
+// app.use((req, res, next) => {
+//     res.header('Cache-Control', 'no-cache,no-store,must-revalidate,max-age=0');
+//     next();
+// });
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,PUT,PATCH,POST,DELETE");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
 });
 
 // Serve static files from the "public" directory
