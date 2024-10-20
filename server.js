@@ -9,6 +9,7 @@ const os = require('os');
 const swaggerUi = require('swagger-ui-express');
 const expressBasicAuth = require('express-basic-auth');
 const morgan = require('morgan');
+
 const ResponseHandler = require('./utils/responseHandler');
 
 // Initialize the Express app
@@ -17,38 +18,26 @@ const totalCPUs = os.cpus().length;
 const port = process.env.APP_PORT || 3000;
 
 // Middleware to enhance security headers
-app.use(helmet({
-  contentSecurityPolicy: false, // Adjust helmet settings if needed for CORS
-}));
+app.use(helmet());
 
-// Middleware to parse incoming request bodies
+// Middleware to parse incoming request bodies (JSON & URL-encoded)
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// Middleware to log incoming requests
+// Middleware to console the incoming requests
 app.use(morgan('dev'));
 
 // Middleware to handle CORS
-// app.use(cors({
-//     origin: '*',
-//     methods: ['PUT', 'POST', 'PATCH', 'DELETE', 'GET'],
-//     allowedHeaders: 'Origin, Access-Control-Allow-Origin, X-Requested-With, Content-Type, Accept, Authorization',
-// }));
-
-// Handle CORS preflight requests
-// app.options('*', cors());
+app.use(cors({
+    origin: '*',
+    methods: 'PUT, POST, PATCH, DELETE, GET',
+    allowedHeaders: 'Origin, Access-Control-Allow-Origin, X-Requested-With, Content-Type, Accept, Authorization',
+}));
 
 // Middleware to disable caching
-// app.use((req, res, next) => {
-//     res.header('Cache-Control', 'no-cache,no-store,must-revalidate,max-age=0');
-//     next();
-// });
-
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET,PUT,PATCH,POST,DELETE");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
+app.use((req, res, next) => {
+    res.header('Cache-Control', 'no-cache,no-store,must-revalidate,max-age=0');
+    next();
 });
 
 // Serve static files from the "public" directory
@@ -80,22 +69,23 @@ app.get('/', (req, res) => {
 // API routes
 app.use('/api/:ve', require('./routes/v1'));
 
-// Route to handle 404 errors
+// Route to handle 404 errors for unhandled routes
 app.use((req, res) => {
     res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
 });
 
-// Cluster setup
+// Cluster setup to utilize multiple CPU cores
 if (cluster.isMaster) {
-    for (let i = 0; i < totalCPUs; i++) {
+    for (let i = 0; i < totalCPUs; i++) { // Fork workers based on the number of available CPUs
         cluster.fork();
     }
 
-    cluster.on('exit', () => {
+    cluster.on('exit', () => { // If a worker dies, fork a new one
         cluster.fork();
     });
-} else {
-    app.listen(port, () => {
+}
+else {
+    app.listen(port, () => { // Start the server in worker process
         console.log(`Server started 🚀 : ${process.env.APP_BASE_URL}`);
     });
 }

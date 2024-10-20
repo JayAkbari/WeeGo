@@ -1,6 +1,7 @@
 const db = require('../../database/models');
 const { createJwtToken } = require('../../helpers/jwt');
 const { comparePassword } = require('../../helpers/password');
+const { CONSTANTS } = require('../../utils/constants');
 
 exports.signIn = async (req, res) => {
     try {
@@ -30,6 +31,7 @@ exports.signIn = async (req, res) => {
         const payload = {
             id: user.id,
             email: user.email,
+            role: CONSTANTS.ROLES.SUPER_ADMIN
         };
 
         const token = await createJwtToken(payload);
@@ -73,6 +75,7 @@ exports.signInParents = async (req, res) => {
         const payload = {
             id: user.id,
             email: user.email,
+            role: CONSTANTS.ROLES.PARENTS
         };
 
         const token = await createJwtToken(payload);
@@ -116,6 +119,7 @@ exports.signInDriver = async (req, res) => {
         const payload = {
             id: user.id,
             email: user.email,
+            role: CONSTANTS.ROLES.DRIVER
         };
 
         const token = await createJwtToken(payload);
@@ -159,6 +163,7 @@ exports.signInSchool = async (req, res) => {
         const payload = {
             id: user.id,
             email: user.email,
+            role: CONSTANTS.ROLES.SCHOOL
         };
 
         const token = await createJwtToken(payload);

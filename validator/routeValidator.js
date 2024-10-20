@@ -1,6 +1,9 @@
 const joi = require('joi');
 
 exports.create = joi.object({
+    custom_id: joi
+        .string()
+        .required(),
     name: joi
         .string()
         .required(),

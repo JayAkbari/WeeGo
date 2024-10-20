@@ -6,6 +6,8 @@ module.exports = (sequelize, DataTypes) => {
     class Routes extends Model {
         static associate(models) {
             this.hasMany(models.RouteStops, { as: 'stops', foreignKey: 'route_id' });
+            this.belongsTo(models.Drivers, { as: 'driver_data', foreignKey: 'driver_id' });
+            this.belongsTo(models.Vehicles, { as: 'vehicle_data', foreignKey: 'vehicle_id' });
         }
     }
     Routes.init({

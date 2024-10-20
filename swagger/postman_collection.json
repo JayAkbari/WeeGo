@@ -94,9 +94,9 @@
                             }
                         },
                         "url": {
-                            "raw": "{{host}}/api/v1/auth/signin/parents",
+                            "raw": "{{dev_host}}/api/v1/auth/signin/parents",
                             "host": [
-                                "{{host}}"
+                                "{{dev_host}}"
                             ],
                             "path": [
                                 "api",
@@ -139,9 +139,9 @@
                             }
                         },
                         "url": {
-                            "raw": "{{host}}/api/v1/auth/signin/driver",
+                            "raw": "{{dev_host}}/api/v1/auth/signin/driver",
                             "host": [
-                                "{{host}}"
+                                "{{dev_host}}"
                             ],
                             "path": [
                                 "api",
@@ -287,7 +287,7 @@
                                 {
                                     "key": "file",
                                     "type": "file",
-                                    "src": "/C:/WORK/Personal/WeeGo/student.xlsx"
+                                    "src": "/C:/WORK/Personal/WeeGo/excel/student.xlsx"
                                 }
                             ]
                         },
@@ -397,7 +397,7 @@
                         "method": "GET",
                         "header": [],
                         "url": {
-                            "raw": "{{host}}/api/v1/students/get?page=1&limit=1",
+                            "raw": "{{host}}/api/v1/students/get?page=1&limit=10",
                             "host": [
                                 "{{host}}"
                             ],
@@ -414,13 +414,114 @@
                                 },
                                 {
                                     "key": "limit",
-                                    "value": "1"
+                                    "value": "10"
                                 },
                                 {
                                     "key": "search",
                                     "value": "",
                                     "disabled": true
                                 }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get By Driver",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{host}}/api/v1/students/get-by-driver/cbd83ee6-f964-4f21-aaf5-d42b63c15cba?page=1&limit=10",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "students",
+                                "get-by-driver",
+                                "cbd83ee6-f964-4f21-aaf5-d42b63c15cba"
+                            ],
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "10"
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get By Parent",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{host}}/api/v1/students/get-by-parents/f4536e54-2a92-4303-8ea9-c9e500982468?page=1&limit=10",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "students",
+                                "get-by-parents",
+                                "f4536e54-2a92-4303-8ea9-c9e500982468"
+                            ],
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "10"
+                                },
+                                {
+                                    "key": "search",
+                                    "value": null,
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Assign Stop",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"student_id\": \"187fcf09-2c11-49d8-8ce1-b727b84d7d6b\",\r\n    \"route_stop_id\": \"98a7f977-6f4e-4520-a043-6a53c1a487c6\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{host}}/api/v1/students/assign-stop",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "students",
+                                "assign-stop"
                             ]
                         }
                     },
@@ -438,7 +539,7 @@
                         "header": [],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\r\n    \"name\": \"Route Name - S.G. Highway\",\r\n    \"driver_id\": \"cbd83ee6-f964-4f21-aaf5-d42b63c15cba\",\r\n    \"vehicle_id\": \"947bc12d-1f5e-4a9f-82c0-34299efcf6b8\",\r\n    \"stops\": [\r\n        {\r\n            \"name\": \"Stop 1 - Iscon\",\r\n            \"coordinates\": {\r\n                \"latitude\": \"23.0249818\",\r\n                \"longitude\": \"72.5045738\"\r\n            }\r\n        },\r\n        {\r\n            \"name\": \"Stop 2 - Rajpath\",\r\n            \"coordinates\": {\r\n                \"latitude\": \"23.0346599\",\r\n                \"longitude\": \"72.5069946\"\r\n            }\r\n        }\r\n    ]\r\n}",
+                            "raw": "{\r\n    \"custom_id\": \"abc_001\",\r\n    \"name\": \"Route Name - S.G. Highway\",\r\n    \"driver_id\": \"cbd83ee6-f964-4f21-aaf5-d42b63c15cba\",\r\n    \"vehicle_id\": \"947bc12d-1f5e-4a9f-82c0-34299efcf6b8\",\r\n    \"stops\": [\r\n        {\r\n            \"name\": \"Stop 1 - Iscon\",\r\n            \"coordinates\": {\r\n                \"latitude\": \"23.0249818\",\r\n                \"longitude\": \"72.5045738\"\r\n            }\r\n        },\r\n        {\r\n            \"name\": \"Stop 2 - Rajpath\",\r\n            \"coordinates\": {\r\n                \"latitude\": \"23.0346599\",\r\n                \"longitude\": \"72.5069946\"\r\n            }\r\n        }\r\n    ]\r\n}",
                             "options": {
                                 "raw": {
                                     "language": "json"

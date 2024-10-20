@@ -7,6 +7,8 @@ module.exports = (sequelize, DataTypes) => {
         static associate(models) {
             this.hasMany(models.StudentParents, { as: 'parents', foreignKey: 'student_id' });
             this.belongsTo(models.Schools, { as: 'school_data', foreignKey: 'school_id' });
+            this.belongsTo(models.Routes, { as: 'route_data', foreignKey: 'assigned_route_id' });
+            this.belongsTo(models.RouteStops, { as: 'route_stop_data', foreignKey: 'assigned_route_stop_id' });
         }
     }
     Students.init({
@@ -25,6 +27,7 @@ module.exports = (sequelize, DataTypes) => {
         img_url: DataTypes.STRING,
         school_id: DataTypes.UUID,
         assigned_route_id: DataTypes.UUID,
+        assigned_route_stop_id: DataTypes.UUID,
         is_active: {
             type: DataTypes.BOOLEAN,
             defaultValue: true,
