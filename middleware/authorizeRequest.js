@@ -1,6 +1,7 @@
 const { verifyJwtToken } = require('../helpers/jwt');
 
 exports.authorizeRequest = async (req, res, next) => {
+    console.log('req--- ', req.originalUrl);
     try {
         const authorizationHeader = req.headers.authorization;
 
@@ -18,7 +19,7 @@ exports.authorizeRequest = async (req, res, next) => {
             return res.handler.unauthorized(errorMessage);
         }
 
-        req.user = { id: decodedToken.id, email: decodedToken.email };
+        req.user = { id: decodedToken.id, email: decodedToken.email, role: decodedToken.role };
         next();
     }
     catch (error) {

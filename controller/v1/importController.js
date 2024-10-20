@@ -109,10 +109,10 @@ exports.importVehicles = async (req, res) => {
             });
 
             // find or create route
-            const [route] = await db.Routes.findOrCreate({
-                where: { custom_id: row.default_route_id, name: row.default_route_name },
-                defaults: { custom_id: row.default_route_id, name: row.default_route_name }
-            });
+            // const [route] = await db.Routes.findOrCreate({
+            //     where: { custom_id: row.default_route_id, name: row.default_route_name },
+            //     defaults: { custom_id: row.default_route_id, name: row.default_route_name }
+            // });
 
             // create vehicle
             db.Vehicles.create({
@@ -120,7 +120,7 @@ exports.importVehicles = async (req, res) => {
                 registration_no: row.vehicle_reg_no,
                 type_id: vehicle_type.id,
                 seating_capacity: row.seating_capacity,
-                default_route_id: route.id
+                // default_route_id: route.id
             });
         }
 
@@ -158,12 +158,6 @@ exports.importStudents = async (req, res) => {
         }
 
         for (let row of rows) {
-            // find assigned route
-            const route = await db.Routes.findOne({
-                where: { custom_id: row.assigned_route_id },
-                raw: true
-            });
-
             // create student
             const student = await db.Students.create({
                 custom_id: row.student_id_no,
@@ -174,21 +168,31 @@ exports.importStudents = async (req, res) => {
                 area: row.area,
                 class: row.class,
                 // img_url: '',
-                // school_id: '',
-                assigned_route_id: route?.id || null,
+                school_id: req.user.id,
             });
 
             // create parents
-            const parent_father = await db.Parents.create({
-                name: row.father_name,
-                relationship: 'Father',
-                mobile: row.father_mobile_no,
+            const default_password = await hashPassword('Admin@1234');
+            const [parent_father] = await db.Parents.findOrCreate({
+                where: { email: row.father_email },
+                defaults: {
+                    name: row.father_name,
+                    relationship: 'Father',
+                    email: row.father_email,
+                    mobile: 0,
+                    password: default_password
+                }
             });
 
-            const parent_mother = await db.Parents.create({
-                name: row.mother_name,
-                relationship: 'Mother',
-                mobile: row.mother_mobile_no,
+            const [parent_mother] = await db.Parents.findOrCreate({
+                where: { email: row.mother_email },
+                defaults: {
+                    name: row.mother_name,
+                    relationship: 'Mother',
+                    email: row.mother_email,
+                    mobile: 0,
+                    password: default_password
+                }
             });
 
             // create student-parents relationship

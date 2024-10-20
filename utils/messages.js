@@ -15,8 +15,18 @@ const MESSAGE = {
     DRIVER: {
         NOT_EXIST: 'Driver not exist.',
     },
+    PARENT: {
+        NOT_EXIST: 'Parent not exist.',
+    },
     VEHICLE: {
         NOT_EXIST: 'Vehicle not exist.',
+    },
+    STUDENT: {
+        NOT_EXIST: 'Student not exist.',
+        ROUTE_ASSIGNED: 'Route assigned successfully.',
+    },
+    ROUTE_STOP: {
+        NOT_EXIST: 'Route stop not exist.',
     },
 };
 

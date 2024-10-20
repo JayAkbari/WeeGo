@@ -14,4 +14,27 @@ router.route(API_PATH.STUDENTS.GET)
         studentController.get
     );
 
+router.route(API_PATH.STUDENTS.GET_BY_DRIVER)
+    .get(
+        authorizeRequest,
+        validateParams(validator.getByDriver),
+        studentController.getByDriver
+    );
+
+router.route(API_PATH.STUDENTS.GET_BY_PARENTS)
+    .get(
+        authorizeRequest,
+        validateParams(validator.getByParents),
+        studentController.getByParents
+    );
+
+router.route(API_PATH.STUDENTS.ASSIGN_STOP)
+    .post(
+        authorizeRequest,
+        validateParams(validator.assignStop),
+        studentController.assignStop
+    );
+
+
+
 module.exports = router;

@@ -3,15 +3,15 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
     async up(queryInterface, Sequelize) {
-        await queryInterface.addColumn('route_stops', 'route_id', {
+        await queryInterface.addColumn('students', 'assigned_route_stop_id', {
             type: Sequelize.UUID,
             onDelete: 'SET NULL',
             onUpdate: 'CASCADE',
             references: {
-                model: 'routes',
+                model: 'route_stops',
                 key: 'id',
             },
-            after: 'id'
+            after: 'assigned_route_id'
         });
     },
 

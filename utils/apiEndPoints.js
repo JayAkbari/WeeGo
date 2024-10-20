@@ -27,6 +27,9 @@ module.exports = {
     STUDENTS: {
         BASE: '/students',
         GET: '/get',
+        GET_BY_DRIVER: '/get-by-driver/:driver_id',
+        GET_BY_PARENTS: '/get-by-parents/:parent_id',
+        ASSIGN_STOP: '/assign-stop',
     },
 
     ROUTES: {
