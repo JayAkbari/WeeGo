@@ -12,6 +12,9 @@ const routes = [
     { path: API_PATH.VEHICLES.BASE, handler: require('./vehicleRoutes') },
     { path: API_PATH.STUDENTS.BASE, handler: require('./studentRoutes') },
     { path: API_PATH.ROUTES.BASE, handler: require('./routeRoutes') },
+    { path: API_PATH.LOCATION.BASE, handler: require('./locationRoutes') },
+    { path: API_PATH.PUSHER.BASE, handler: require('./pusherRoutes.js') },
+    { path: API_PATH.SCHOOLS.BASE, handler: require('./schoolRoutes.js') },
 ];
 
 // Register all routes dynamically

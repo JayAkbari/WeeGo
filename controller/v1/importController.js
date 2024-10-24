@@ -50,7 +50,7 @@ exports.importDrivers = async (req, res) => {
                     name: validRow.driver_name,
                     email: validRow.email,
                     mobile: validRow.mobile,
-                    password: await hashPassword('Admin@1234'),
+                    password: await hashPassword(CONSTANTS.PASSWORD.DEFAULT),
                     licence_no: validRow.driver_licence_no,
                     aadhar_no: validRow.driver_aadhar_no,
                     pan_no: validRow.driver_pan_no,
@@ -172,7 +172,7 @@ exports.importStudents = async (req, res) => {
             });
 
             // create parents
-            const default_password = await hashPassword('Admin@1234');
+            const default_password = await hashPassword(CONSTANTS.PASSWORD.DEFAULT);
             const [parent_father] = await db.Parents.findOrCreate({
                 where: { email: row.father_email },
                 defaults: {

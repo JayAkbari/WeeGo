@@ -7,7 +7,7 @@ const baseConfig = {
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
     dialect: process.env.DB_CONNECTION,
-    logging: true,
+    logging: console.log,
     benchmark: true, // display query execution time
     timezone: '+05:30', // Set timezone to IST (Asia/Kolkata) // IST is UTC +05:30
 

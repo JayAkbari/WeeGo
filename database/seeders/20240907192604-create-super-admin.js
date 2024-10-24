@@ -16,7 +16,7 @@ module.exports = {
             name: 'Salman Khan',
             email: 'skhan003@yopmail.com',
             mobile: '3339998880',
-            password: await hashPassword('Admin@1234'),
+            password: await hashPassword(CONSTANTS.PASSWORD.DEFAULT),
             role_id: superAdminRole.id,
         });
     },

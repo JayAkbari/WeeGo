@@ -1,6 +1,6 @@
 const { Op } = require('sequelize');
 
-const { getAllRecords } = require('../../helpers/response');
+const { getAllRecords, getPaginationParams } = require('../../helpers/response');
 const db = require('../../database/models');
 const common = require('./common');
 const { MESSAGE } = require('../../utils/messages');
@@ -9,9 +9,7 @@ exports.get = async (req, res) => {
     try {
         const model = 'Students';
         const { search } = req.query;
-        const page = parseInt(req.query.page);
-        const limit = parseInt(req.query.limit);
-        const start = page > 1 ? ((page - 1) * limit) : 0;
+        const pagination = await getPaginationParams(req.query);
 
         let whereCond = [];
         if (search) {
@@ -25,10 +23,10 @@ exports.get = async (req, res) => {
         }
 
         const query = {
-            limit: limit,
-            offset: start,
+            limit: pagination.limit,
+            offset: pagination.start,
             where: whereCond,
-            order: [['id', 'DESC']],
+            order: [['createdAt', 'DESC']],
             distinct: true,
             include: [
                 {
@@ -84,9 +82,7 @@ exports.get = async (req, res) => {
 exports.getByDriver = async (req, res) => {
     try {
         const { search } = req.query;
-        const page = parseInt(req.query.page);
-        const limit = parseInt(req.query.limit);
-        const start = page > 1 ? ((page - 1) * limit) : 0;
+        const pagination = await getPaginationParams(req.query);
 
         const { driver_id } = req.params;
         const driverExists = await common.isExist('Drivers', driver_id);
@@ -119,10 +115,10 @@ exports.getByDriver = async (req, res) => {
         }
 
         const query = {
-            limit: limit,
-            offset: start,
+            limit: pagination.limit,
+            offset: pagination.start,
             where: whereCond,
-            order: [['id', 'DESC']],
+            order: [['createdAt', 'DESC']],
             distinct: true,
             include: [
                 {
@@ -178,9 +174,7 @@ exports.getByDriver = async (req, res) => {
 exports.getByParents = async (req, res) => {
     try {
         const { search } = req.query;
-        const page = parseInt(req.query.page);
-        const limit = parseInt(req.query.limit);
-        const start = page > 1 ? ((page - 1) * limit) : 0;
+        const pagination = await getPaginationParams(req.query);
 
         const { parent_id } = req.params;
         const parentExists = await common.isExist('Parents', parent_id);
@@ -216,10 +210,10 @@ exports.getByParents = async (req, res) => {
         }
 
         const query = {
-            limit: limit,
-            offset: start,
+            limit: pagination.limit,
+            offset: pagination.start,
             where: whereCond,
-            order: [['id', 'DESC']],
+            order: [['createdAt', 'DESC']],
             distinct: true,
             include: [
                 {

@@ -4,6 +4,7 @@ const { v4: uuidv4 } = require('uuid');
 
 const db = require("../models");
 const { hashPassword } = require('../../helpers/password');
+const { CONSTANTS } = require('../../utils/constants');
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -13,7 +14,7 @@ module.exports = {
             name: 'Mahatma Gandhi School',
             email: 'mahatma-gandhi-school@yopmail.com',
             mobile: '1122334455',
-            password: await hashPassword('Admin@1234'),
+            password: await hashPassword(CONSTANTS.PASSWORD.DEFAULT),
             address: 'S.G Highway',
         });
     },

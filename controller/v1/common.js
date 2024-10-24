@@ -19,6 +19,38 @@ exports.isExist = async (model, id) => {
     }
 };
 
+exports.isExistByEmail = async (model, email) => {
+    try {
+        if (!model || !email) {
+            return false;
+        }
+
+        const exist = await db[model].count({ where: { email } });
+
+        return exist ? true : false;
+    }
+    catch (error) {
+        logger.error({ message: error.message, stack: error.stack });
+        return false;
+    }
+};
+
+exports.getById = async (model, id) => {
+    try {
+        if (!model || !id) {
+            return null;
+        }
+
+        const data = await db[model].findOne({ where: { id } });
+
+        return data;
+    }
+    catch (error) {
+        logger.error({ message: error.message, stack: error.stack });
+        return null;
+    }
+};
+
 exports.getRouteById = async (id) => {
     try {
         if (!id) {

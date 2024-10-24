@@ -1,14 +1,12 @@
 const { Op } = require('sequelize');
 
-const { getAllRecords } = require('../../helpers/response');
+const { getAllRecords, getPaginationParams } = require('../../helpers/response');
 
 exports.get = async (req, res) => {
     try {
         const model = 'Drivers';
         const { search } = req.query;
-        const page = parseInt(req.query.page);
-        const limit = parseInt(req.query.limit);
-        const start = page > 1 ? ((page - 1) * limit) : 0;
+        const pagination = await getPaginationParams(req.query);
 
         let whereCond = [];
         if (search) {
@@ -22,10 +20,10 @@ exports.get = async (req, res) => {
         }
 
         const query = {
-            limit: limit,
-            offset: start,
+            limit: pagination.limit,
+            offset: pagination.start,
             where: whereCond,
-            order: [['id', 'DESC']],
+            order: [['createdAt', 'DESC']],
             distinct: true,
         };
 

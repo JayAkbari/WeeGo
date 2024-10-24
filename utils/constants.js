@@ -20,6 +20,10 @@ const CONSTANTS = {
             STUDENT: ['student_name', 'student_id_no', 'date_of_birth', 'father_name', 'father_email', 'mother_name', 'mother_email', 'address', 'area'],
         },
     },
+
+    PASSWORD: {
+        DEFAULT: 'Admin@1234',
+    },
 };
 
 module.exports = { CONSTANTS };

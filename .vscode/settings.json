@@ -1,0 +1,6 @@
+{
+    "editor.tabSize": 4, //Sets the tab size to 4 spaces.
+    "editor.insertSpaces": true, // Ensures that spaces are used instead of tabs.
+    "editor.detectIndentation": false, // Disables automatic detection of indentation settings.
+    "eslint.format.enable": true // Allows ESLint to format the file when saving.
+}

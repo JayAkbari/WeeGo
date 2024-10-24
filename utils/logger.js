@@ -29,12 +29,12 @@ const logger = winston.createLogger({
         dailyRotateTransport,
         new winston.transports.Console(),
     ],
-    exceptionHandlers: [
-        new DailyRotateFile({ filename: 'logs/exceptions-%DATE%.log', datePattern: 'YYYYMMDD' })
-    ],
-    rejectionHandlers: [
-        new DailyRotateFile({ filename: 'logs/rejections-%DATE%.log', datePattern: 'YYYYMMDD' })
-    ]
+    // exceptionHandlers: [
+    //     new DailyRotateFile({ filename: 'logs/exceptions-%DATE%.log', datePattern: 'YYYYMMDD' })
+    // ],
+    // rejectionHandlers: [
+    //     new DailyRotateFile({ filename: 'logs/rejections-%DATE%.log', datePattern: 'YYYYMMDD' })
+    // ]
 });
 
 module.exports = { logger };

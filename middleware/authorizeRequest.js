@@ -1,7 +1,6 @@
 const { verifyJwtToken } = require('../helpers/jwt');
 
 exports.authorizeRequest = async (req, res, next) => {
-    console.log('req--- ', req.originalUrl);
     try {
         const authorizationHeader = req.headers.authorization;
 

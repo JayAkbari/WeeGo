@@ -35,6 +35,4 @@ router.route(API_PATH.STUDENTS.ASSIGN_STOP)
         studentController.assignStop
     );
 
-
-
 module.exports = router;

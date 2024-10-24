@@ -21,6 +21,9 @@ const MESSAGE = {
     VEHICLE: {
         NOT_EXIST: 'Vehicle not exist.',
     },
+    SCHOOL: {
+        EXIST: 'School exist with same email. Please choose different email.',
+    },
     STUDENT: {
         NOT_EXIST: 'Student not exist.',
         ROUTE_ASSIGNED: 'Route assigned successfully.',

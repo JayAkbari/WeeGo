@@ -139,9 +139,9 @@
                             }
                         },
                         "url": {
-                            "raw": "{{dev_host}}/api/v1/auth/signin/driver",
+                            "raw": "{{host}}/api/v1/auth/signin/driver",
                             "host": [
-                                "{{dev_host}}"
+                                "{{host}}"
                             ],
                             "path": [
                                 "api",
@@ -505,7 +505,7 @@
                         "header": [],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\r\n    \"student_id\": \"187fcf09-2c11-49d8-8ce1-b727b84d7d6b\",\r\n    \"route_stop_id\": \"98a7f977-6f4e-4520-a043-6a53c1a487c6\"\r\n}",
+                            "raw": "{\r\n    \"student_id\": \"b354452e-6996-4897-9227-752d00b047e4\",\r\n    \"route_stop_id\": \"98a7f977-6f4e-4520-a043-6a53c1a487c6\"\r\n}",
                             "options": {
                                 "raw": {
                                     "language": "json"
@@ -539,7 +539,7 @@
                         "header": [],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\r\n    \"custom_id\": \"abc_001\",\r\n    \"name\": \"Route Name - S.G. Highway\",\r\n    \"driver_id\": \"cbd83ee6-f964-4f21-aaf5-d42b63c15cba\",\r\n    \"vehicle_id\": \"947bc12d-1f5e-4a9f-82c0-34299efcf6b8\",\r\n    \"stops\": [\r\n        {\r\n            \"name\": \"Stop 1 - Iscon\",\r\n            \"coordinates\": {\r\n                \"latitude\": \"23.0249818\",\r\n                \"longitude\": \"72.5045738\"\r\n            }\r\n        },\r\n        {\r\n            \"name\": \"Stop 2 - Rajpath\",\r\n            \"coordinates\": {\r\n                \"latitude\": \"23.0346599\",\r\n                \"longitude\": \"72.5069946\"\r\n            }\r\n        }\r\n    ]\r\n}",
+                            "raw": "{\r\n    \"custom_id\": \"abc_001\",\r\n    \"name\": \"Route Name - S.G. Highway\",\r\n    \"driver_id\": \"2b01a4d6-4038-4338-8cee-e571a7f158d4\",\r\n    \"vehicle_id\": \"7d8ba6ac-1fb5-473a-890b-cc8a41d22e3c\",\r\n    \"stops\": [\r\n        {\r\n            \"name\": \"Stop 1 - Iscon\",\r\n            \"coordinates\": {\r\n                \"latitude\": \"23.0249818\",\r\n                \"longitude\": \"72.5045738\"\r\n            }\r\n        },\r\n        {\r\n            \"name\": \"Stop 2 - Rajpath\",\r\n            \"coordinates\": {\r\n                \"latitude\": \"23.0346599\",\r\n                \"longitude\": \"72.5069946\"\r\n            }\r\n        }\r\n    ]\r\n}",
                             "options": {
                                 "raw": {
                                     "language": "json"
@@ -589,6 +589,169 @@
                                 {
                                     "key": "search",
                                     "value": "highway",
+                                    "disabled": true
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "item": [
+                {
+                    "name": "Update Location",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"driver_id\": \"60a1d689-bee5-44bd-b1db-76b92bc610b4\",\r\n    \"coordinates\": {\r\n        \"latitude\": \"20.0249818\",\r\n        \"longitude\": \"70.5045738\"\r\n    }\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{host}}/api/v1/location/update",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "location",
+                                "update"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Location",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{host}}/api/v1/location/get?driver_id=60a1d689-bee5-44bd-b1db-76b92bc610b4",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "location",
+                                "get"
+                            ],
+                            "query": [
+                                {
+                                    "key": "driver_id",
+                                    "value": "60a1d689-bee5-44bd-b1db-76b92bc610b4"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Socket",
+            "item": [
+                {
+                    "name": "Auth",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"socket_id\": \"1234.5678\",\r\n    \"channel\": \"driver-cbd83ee6-f964-4f21-aaf5-d42b63c15cba\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{host}}/api/v1/pusher/auth",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "pusher",
+                                "auth"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Schools",
+            "item": [
+                {
+                    "name": "Create",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"name\": \"test school\",\r\n    \"email\": \"test@yopmail.com\",\r\n    \"mobile\": \"1234567890\",\r\n    \"address\": \"iscon cross road\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{host}}/api/v1/schools/create",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "schools",
+                                "create"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get All Schools",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{host}}/api/v1/schools/get?page=1&limit=10",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "schools",
+                                "get"
+                            ],
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "10"
+                                },
+                                {
+                                    "key": "search",
+                                    "value": "",
                                     "disabled": true
                                 }
                             ]
